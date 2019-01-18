@@ -1,0 +1,10 @@
+<p></p>
+<form (ngSubmit)="agregar()" >
+  <input type="text" placeholder="Ingrese su nombre" name="name" 
+  class="form-control"  [(ngModel)]= "item.name">
+
+  <input type="text" placeholder="Ingrese su apellido" name="apellido" 
+  class="form-control"  [(ngModel)]= "item.apellido">
+
+  <button class="btn btn-warning mt-3" type="submit" >Agregar</button> 
+</form>

@@ -1,0 +1,67 @@
+<h5 style="text-align:center">Lista de Datos</h5>
+<div class="table-responsive mt-3 fireang">
+  <table class="table  table-bordered table-hover">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of items; index as i">
+        <th scope="row">{{i+1}}</th>
+        <td>{{item.name}}</td>
+        <td>{{item.apellido}}</td>
+        <td><div class="float-right" (click)="eliminar(item)">
+          <i class="fas fa-trash"></i>
+          <td><div class="float-right" (click)="actualizar (item)">
+             <i class="fal fa-pencil"></i>">
+            
+
+          
+        </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<br>
+<div class="alert alert-info fireang" role="alert" *ngFor="let item of items">
+  {{item.name}} {{item.apellido}}{{item.id}}
+
+<style>
+  .fireang {
+    width: 48%;
+    float: left;
+    margin-right: 10px;
+  }
+</style>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form (ngSubmit)="editar()" >
+          <input type="text" placeholder="Ingrese su nombre" name="name" 
+          class="form-control"  [(ngModel)]= "item.name">
+        
+          <input type="text" placeholder="Ingrese su apellido" name="apellido" 
+          class="form-control"  [(ngModel)]= "item.apellido">
+        
+          <button class="btn btn-warning mt-3" type="submit" >Agregar</button> 
+        </form>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
